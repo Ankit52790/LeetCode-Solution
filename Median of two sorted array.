@@ -1,0 +1,35 @@
+Public class Median{
+Public double findMedianSortedArray(int [] nums1,int [] nums2){
+double=0.0f
+long n=new long[num1.lengt+nums2.length];
+
+if(nums1.length>=nums2.length){
+for(int i=0;j<nums1.length;i++){
+n[i]=nums1[i];
+}
+for(int j=0;j<nums2.length;j++){
+n[i]=nums2[j];
+i++;
+}
+
+}else if(nums2.length>=nums1.length){
+for(int i=0;i<nums2.length;i++){
+n[i]=nums2[i];}
+for(int j=0;j<nums1.length;j++){
+n[i]=nums1[j];
+i++;
+}
+}
+Arrays.sort(n);
+if(n.length%2==0){
+int mid=n.length/2;
+int mid1=(n.length/2)-1;
+d=(n[mid]n[mid1])/2.0;
+}
+else if(n.length%2!=0)
+{
+int mid=(n.length-1)/2;
+d=n[mid];
+}
+retirn d;
+}
