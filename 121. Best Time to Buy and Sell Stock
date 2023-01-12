@@ -1,0 +1,11 @@
+class Solution {
+public int maxProfit(int[] prices) {
+                int currmax = 0;
+                int max = 0;
+                for(int i=1; i<prices.length; i++){
+                currmax=Math.max(0, currmax+=prices[i]-prices[i-1]);
+                max=Math.max(currmax,max);
+              }
+                return max;
+               }
+}
