@@ -1,0 +1,24 @@
+class Solution {
+public List<Integer> findDuplicates(int[] nums) {
+// First Approach
+int[] f = new int[nums.length+1];
+List<Integer> list = new ArrayList<Integer>();
+for(int i=0; i<nums.length; i++){
+f[nums[i]]++;
+if(f[nums[i]]>=2){
+list.add(nums[i]);
+}
+}
+return list;
+// Second Approach
+List<Integer> list = new ArrayList<Integer>();
+for(int i=0; i<nums.length; ++i){
+int index=Math.abs(nums[i])-1;
+if(nums[index]<0){
+list.add(index+1);
+}
+nums[index]=-nums[index];
+}
+return list;
+}
+}
