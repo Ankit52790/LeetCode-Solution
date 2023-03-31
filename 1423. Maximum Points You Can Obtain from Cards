@@ -1,0 +1,19 @@
+class Solution {
+public int maxScore(int[] cardPoints, int k) {
+int l=0, r=cardPoints.length-1;
+int left=0, right=0, result=0;
+for(int i=r; i>r-k; --i){
+right+=cardPoints[i];
+}
+result = right;
+int i=-1,j=r-k;
+for(int m=0; m<k; ++m){
+++i;
+++j;
+left+=cardPoints[i];
+right-=cardPoints[j];
+result=Math.max(result, right+left);
+}
+return result;
+}
+}
