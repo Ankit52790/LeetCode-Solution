@@ -1,0 +1,11 @@
+// Approach 2
+class Solution {
+public boolean canJump(int[] nums) {
+int lastIndexCanReach = 0;
+for(int i=0; i<=lastIndexCanReach; i++){
+lastIndexCanReach = Math.max(lastIndexCanReach, nums[i]+i);
+if(lastIndexCanReach>=nums.length-1) return true;
+}
+return false;
+}
+}
