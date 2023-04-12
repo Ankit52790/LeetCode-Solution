@@ -1,0 +1,53 @@
+class Solution {
+public void gameOfLife(int[][] board) {
+int[][] mark = new int[board.length][board[0].length];
+for(int i=0; i<board.length; i++){ 
+for(int j=0; j<board[i].length; j++){
+int neighbour = countNeighbour(board, i, j);
+// First Rule
+if(board[i][j]==1 && neighbour<2){
+mark[i][j]=0;
+}
+// Second Rule
+else if(board[i][j]==1 && (neighbour == 2 || neighbour == 3)){
+mark[i][j]=1;
+}
+// Third Rule
+else if(board[i][j]==1 && neighbour>3){
+mark[i][j]=0;
+}
+// Fourth Rule
+else if(board[i][j]==0 && neighbour == 3){
+mark[i][j]=1;
+}
+}
+}
+for(int i=0; i< board.length; i++){
+for(int j=0; j<board[0].length; j++){
+board[i][j]=mark[i][j];
+}
+}
+}
+public int countNeighbour(int[][] board, int i, int j){
+int count=0;
+// All 8 direction co-ordinates
+int[][] direction = 
+{ {0, 1}, // right
+{0, -1}, // left
+{-1, 0}, // top
+{1, 0}, // bottom
+{1, -1}, // bottom-left
+{1, 1}, // bottom-right
+{-1, 1}, // top-right
+{-1, -1}}; // top-left
+for(int[] dir:direction){
+int x = i+dir[0]; // Adding the resultant x co-ordinates
+int y = j+dir[1]; // Adding the resultant y co-ordinates
+// Checking the corner case condition
+if(x>=0 && y>=0 && x<board.length && y<board[0].length){
+count+=board[x][y];
+}
+}
+return count;
+}
+}
