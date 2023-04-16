@@ -1,0 +1,28 @@
+class Solution {
+public int diagonalSum(int[][] mat) {
+int sum=0;
+int n = mat.length;
+for(int i=0; i<n; i++){
+// sum+=(topLeft-bottomRight)+(topRight-bottomLeft)
+sum+=mat[i][i]+mat[i][n-1-i];
+}
+// even matrix have common diagonal, remove that element from sum
+return n%2==0? sum : (sum-mat[n/2][n/2]);
+}
+}
+class Solution {
+public int diagonalSum(int[][] mat) {
+int sum=0;
+int n = mat.length;
+int j = n-1,i=0;
+for(i=0; i<j; i++, j--){
+// sum+=(topleft-center)+(topRight-center)+(bottomLeft)-center)+(bottomRightcenter)
+sum+=mat[i][i]+mat[i][j]+mat[j][i]+mat[j][j];
+}
+// add the center diaginal
+if(i==j){
+sum+=mat[i][i];
+}
+return sum;
+}
+}
