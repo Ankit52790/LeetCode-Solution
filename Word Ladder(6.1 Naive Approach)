@@ -1,0 +1,29 @@
+public class Solution {
+public int ladderLength(String start, String end, HashSet<String> dict) {
+int len=0;
+HashSet<String> visited = new HashSet<String>();
+for(int i=0; i<start.length(); i++){
+char[] startArr = start.toCharArray();
+for(char c=’a’; c<=’z’; c++){
+if(c==start.toCharArray()[i]){
+continue;
+}
+startArr[i] = c;
+String temp = new String(startArr);
+if(dict.contains(temp)){
+len++;
+start = temp;
+if(temp.equals(end)){
+return len;
+}
+}
+}
+}
+return len;
+}
+}
+Apparently, this is not good enough. The following example exactly shows the
+problem. It can not find optimal path. The output is 3, but it actually only takes 2.
+Input: "a", "c", ["a","b","c"]
+Output: 3
+Expected: 2
